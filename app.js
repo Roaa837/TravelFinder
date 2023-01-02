@@ -27,6 +27,7 @@ MongoClient.connect(url,function(err,client){
   var db = client.db('myDB')
 });
 const PORT = process.env.PORT || 3030;
+
 // login page
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -446,4 +447,7 @@ app.post('/',(req,res)=>{
   });
 
 module.exports = app;
-app.listen(3000);
+
+app.listen(PORT, () => {
+  console.log(`server started on port ${PORT}`);
+});
